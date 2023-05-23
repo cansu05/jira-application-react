@@ -5,13 +5,13 @@ import TaskList from "./companent/TaskList";
 
 function App() {
   const [tasks, setTasks] = useState([]);
-  const createTask = (title, taskdescription) => {
+  const createTask = (title,taskDescription ) => {
     const createdTasks = [
       ...tasks,
       {
         id: Math.round(Math.random() * 999999),
         title: title,
-        taskdescription: taskdescription,
+        taskDescription: taskDescription,
       },
     ];
 
