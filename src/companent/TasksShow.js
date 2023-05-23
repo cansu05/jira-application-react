@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./TasksShow.css";
 import TaskCreate from "./TaskCreate";
 
-const TasksShow = ({ task, onDelete }) => {
+const TasksShow = ({ task, onDelete,onUpdate }) => {
   const [showEdit, setShowEdit] = useState(false);
   const handleDeleteClick = () => {
     onDelete(task.id);
@@ -10,11 +10,15 @@ const TasksShow = ({ task, onDelete }) => {
   const handleEditClick = () => {
     setShowEdit(!showEdit);
   };
+  const handleSubmit = (id,updatedTitle,updatedTaskDescription) => {
+    setShowEdit(false);
+    onUpdate(id,updatedTitle,updatedTaskDescription);
+  };
   return (
     <div className="tasks-show-container">
       <div className="tasks-show-wrapper">
         {showEdit ? (
-          <TaskCreate task={task} taskFormUpdate={true}/>
+          <TaskCreate task={task} taskFormUpdate={true} onUpdate={handleSubmit}/>
         ) : (
           <div>
             <h3 className="tasks-show-title">Your Mission</h3>

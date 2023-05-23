@@ -1,9 +1,11 @@
 import { useState } from "react";
 import "./TaskCreate.css";
 
-const TaskCreate = ({ onCreate, task, taskFormUpdate }) => {
-  const [title, setTitle] = useState(task ? task.title : '');
-  const [taskDescription, setTaskDescription] = useState(task ? task.taskDescription : '');
+const TaskCreate = ({ onCreate, task, taskFormUpdate, onUpdate }) => {
+  const [title, setTitle] = useState(task ? task.title : "");
+  const [taskDescription, setTaskDescription] = useState(
+    task ? task.taskDescription : ""
+  );
 
   const handleChange = (event) => {
     setTitle(event.target.value);
@@ -13,7 +15,12 @@ const TaskCreate = ({ onCreate, task, taskFormUpdate }) => {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    onCreate(title, taskDescription);
+    if (taskFormUpdate) {
+      onUpdate(task.id, title, taskDescription);
+    } else {
+      onCreate(title, taskDescription);
+    }
+
     setTitle("");
     setTaskDescription("");
   };
@@ -38,7 +45,7 @@ const TaskCreate = ({ onCreate, task, taskFormUpdate }) => {
               rows={5}
             />
             <button className="edit-task-create-button" onClick={handleSubmit}>
-            Edit Task
+              Edit Task
             </button>
           </form>
         </div>

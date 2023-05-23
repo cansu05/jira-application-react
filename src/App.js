@@ -5,7 +5,7 @@ import TaskList from "./companent/TaskList";
 
 function App() {
   const [tasks, setTasks] = useState([]);
-  const createTask = (title,taskDescription ) => {
+  const createTask = (title, taskDescription) => {
     const createdTasks = [
       ...tasks,
       {
@@ -24,11 +24,29 @@ function App() {
     });
     setTasks(afterDeletingTasks);
   };
+
+  const editTaskById = (id, updatedTitle, updatedTaskDescription) => {
+    const updatedTasks = tasks.map((task) => {
+      if (task.id === id) {
+        return {
+          id,
+          title: updatedTitle,
+          taskDescription: updatedTaskDescription,
+        };
+      }
+      return task;
+    });
+    setTasks(updatedTasks);
+  };
   return (
     <div className="App">
       <TaskCreate onCreate={createTask} />
       <h1 className="app-title">Görevler</h1>
-      <TaskList tasks={tasks} onDelete={deleteTaskById} />
+      <TaskList
+        tasks={tasks}
+        onDelete={deleteTaskById}
+        onUpdate={editTaskById}
+      />
     </div>
   );
 }
