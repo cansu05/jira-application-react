@@ -1,7 +1,10 @@
 import { useState } from "react";
 import "./TaskCreate.css";
+import TasksContext from "../context/task";
+import { useContext } from "react";
 
-const TaskCreate = ({ onCreate, task, taskFormUpdate, onUpdate }) => {
+const TaskCreate = ({ task, taskFormUpdate, onUpdate }) => {
+  const { createTask } = useContext(TasksContext);
   const [title, setTitle] = useState(task ? task.title : "");
   const [taskDescription, setTaskDescription] = useState(
     task ? task.taskDescription : ""
@@ -18,7 +21,7 @@ const TaskCreate = ({ onCreate, task, taskFormUpdate, onUpdate }) => {
     if (taskFormUpdate) {
       onUpdate(task.id, title, taskDescription);
     } else {
-      onCreate(title, taskDescription);
+      createTask(title, taskDescription);
     }
 
     setTitle("");
