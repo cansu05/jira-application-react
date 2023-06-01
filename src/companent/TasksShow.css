@@ -1,0 +1,54 @@
+.tasks-show-container { 
+    width: 350px;
+    margin: 20px 20px;
+    background-color:  rgba(235, 235, 241, 0.438);
+    padding: 30px;
+    border: 2px solid rgb(231, 137, 137);
+    border-radius: 30px;
+}
+
+.tasks-show-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: rgb(65, 56, 56);
+    padding: 40px;
+}
+
+.tasks-show-title {
+    padding: 10px;
+    font-size: 22px;
+    font-weight: bold;
+    overflow: Auto;
+}
+.tasks-show-p {
+    padding: 10px;
+    font-size: 18px;
+    max-width: 300px;
+    overflow: Auto;
+}
+
+.tasks-show-delete-button {
+    margin-top: 15px;
+    border: 1px solid rgb(224, 66, 60);
+    background-color: rgb(224, 66, 66);
+    padding: 10px 15px;
+    color: white;
+    font-size: 14px;
+    font-weight: bolder;
+    border-radius: 20px;
+    width: fit-content;
+    margin-right: 20px;
+}
+
+.tasks-show-update-button {
+    margin-top: 10px;
+    border: 1px solid rgb(36, 128, 233);
+    background-color: rgb(36, 128, 233);
+    padding: 10px 15px;
+    color: white;
+    font-size: 14px;
+    font-weight: bolder;
+    border-radius: 20px;
+    width: fit-content;
+}
