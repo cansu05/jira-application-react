@@ -1,6 +1,14 @@
-const TaskList = () => {
+import TasksShow from './TasksShow'
+
+const TaskList = ({tasks}) => {
   return (
-    <div>TaskList</div>
+    <div>
+      {tasks.map((task,index) => {
+        return (
+          <TasksShow key={index} task={task} />
+        )
+      })}
+    </div>
   )
 }
 
